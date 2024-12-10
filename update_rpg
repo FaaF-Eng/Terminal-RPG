@@ -1,0 +1,87 @@
+#Recriando versão anterior.s
+#Projeto PYTHON SENAI - RPG DE TERMINAL - Por Fábio Teixeira. 
+#Requisitos do projeto:
+# For ou While - OK
+# Lista ou Tuple - OK
+# IF ou Mathcase - OK
+
+#BIBLIOTECAS
+import sys
+import time
+import random
+import os 
+
+#FUNÇÕES 
+
+def limparTela(): #Fazendo a opção de Limpar o Terminal durante a execução do programa
+     os.system('cls' if os.name == 'nt' else 'clear')
+
+def escrever_devagar(texto, intervalo=0.1): #Configurando escrita devagar
+    for char in texto:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(intervalo)
+
+def sairDoJogo(): #Função para fechar o jogo
+        limparTela()
+        print ('=====================================================\n\n\n\n\n')
+        escrever_devagar('\n\n\nSaindo do Jogo\n\n\n\n\n', intervalo=0.05)
+        escrever_devagar('Desenvolvido por Fábio Teixeira\n\n\n', intervalo=0.05)
+        sys.exit()
+
+def ajuda():
+    limparTela()
+    print('\n\n\n===============================================\n\n')
+    escrever_devagar('\n\n\nMenu de Ajuda\n\n\n', intervalo=0.05)
+    print ('Esse é o RPG de Terminal\n\n\nPara jogar basta selecionar as opções disponíveis na tela\n\n')
+    print ('caso queira sair do jogo basta selecionar a opção "sair" no menu e para começar a aventura escreva "jogar"\n\n\n')
+    pausa = input ('\n*Pressione a tecla "ENTER" para continuar')
+    limparTela()
+    print ('=====================================================\n\n\n\n\n')
+
+def jogar(): #Função que vai rodar o jogo a parit do menu principal 
+    limparTela()
+    print ('=====================================================\n\n\n\n\n')
+    escrever_devagar('\n\nVocê acorda em uma cabana de madeira, a luz do sol entra pela janela e você vê um homem alto e barbado a sua frente\n\n', intervalo=0.05)
+    escrever_devagar('\n\n<Mago>Seja bem-vindo ao mundo mágico de TFIRW! Uma terra cheia de magía, aventuras e códigos!\n\n',intervalo=0.05 )
+    nome_player = input ('\n\n<Mago> Qual o seu nome aventureiro(a)? ')
+    limparTela()
+    print ('=====================================================\n\n\n\n\n')
+    escrever_devagar(f'\n\n<Mago> Muito Prazer,{nome_player} eu me chamo JUBILEU! o mago\n', intervalo=0.05) 
+    pausa = input ('\n*Pressione a tecla "ENTER" para continuar')
+    limparTela()
+    print ('=====================================================\n\n\n\n\n')
+    escrever_devagar(f'\n\n<Jubileu> Ainda bem que acordou, preciso da ajuda de um grande guerreiro, estou velho de mais para me aventurar mundo a fora.', intervalo=0.05)
+    pausa =('')
+    escrever_devagar(f'\n\nCaro guerreiro(a) {nome_player} , você estaria hábil de atravessar a floresta sombria e recuperar o Livro de feitiços que fica em uma caverna localizada após a mata da morte?',intervalo=0.05)
+    print ('\n\n')
+    #Escolha 01
+    escolha_01 = input('Aceita a missão do Mago Jubileu? [s/n]').lower()
+
+
+
+
+
+#classes
+class tela_inicial():
+    limparTela()
+    print ('=====================================================\n\n\n\n\n')
+    escrever_devagar('Seja Bem-vindo ao RPG de Terminal\n\n\n\n\n', intervalo=0.05)
+    print('>Jogar<\n>Ajuda<\n>Sair<\n\n\n\n')
+    selecao_menu = input('Digite uma das opções acima: \n\n\n').lower()
+    if selecao_menu == 'sair':
+        sairDoJogo()
+    elif selecao_menu =='ajuda':
+        ajuda()
+    elif selecao_menu == 'jogar':
+        jogar()
+    else: 
+        print('\nEscreva apenas uma das opções disponíveis!\n')
+        pausa = input ('\n*Pressione a tecla "ENTER" para continuar')
+     
+         
+        
+#Execução Inicial do código
+print(tela_inicial)
+
+
